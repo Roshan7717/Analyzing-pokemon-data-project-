@@ -38,6 +38,13 @@ pokemon_stats_legendry  <- pokemon %>% filter(pokemon$Legendary=="True") %>%  gr
 
 ggplot(data= pokemon) +geom_bar(mapping= aes(x=primary_type,fill=Generation))+ theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
-ggplot(pokemon,aes(x=primary_type,fill=Generation)) +geom_bar(position = "dodge")+theme(axis.text.x = element_text(angle = 90, hjust = 1))
+ggplot(pokemon,aes(x=primary_type,fill=Generation)) +geom_bar(position = "fill")+theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
-ggplot(pokemon,aes(Total, fill= Legendary)) +geom_density(alpha=0.5)      
+ggplot(pokemon,aes(x=primary_type,fill=Legendary)) +geom_bar()+theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+ggplot(pokemon,aes(Total, fill= Legendary)) +geom_density(alpha=0.5) 
+
+ggplot(pokemon, aes(primary_type,Total,fill=Legendary))+geom_boxplot()+theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+ggplot(pokemon,aes(Attack,Speed))+geom_point(aes(colour= Legendary))+geom_smooth(method = "lm")+facet_grid(.~Legendary,scales = "free")
+
