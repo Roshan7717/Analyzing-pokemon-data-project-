@@ -44,10 +44,10 @@ ggplot(pokemon,aes(x=primary_type,fill=Generation)) +geom_bar(position = "fill")
 ggplot(pokemon,aes(x=primary_type,fill=Legendary)) +geom_bar(position = "fill")+theme(axis.text.x = element_text(angle = 90, hjust = 1))+labs(title='Percentage of legendary pokemon in each type ',x='primary_type',y='Percentage of pokemon')
 
 #Total power of legendary vs non legendary pokemon 
-ggplot(pokemon,aes(Total, fill= Legendary)) +geom_density(alpha=0.5) 
+ggplot(pokemon,aes(Total, fill= Legendary)) +geom_density(alpha=0.5)+ ggtitle("Total power of legendary vs non legendary pokemon")
 
 #Total power of legendary vs non legendary pokemon by primary type
-ggplot(pokemon, aes(primary_type,Total,fill=Legendary))+geom_boxplot()+theme(axis.text.x = element_text(angle = 90, hjust = 1))
+ggplot(pokemon, aes(primary_type,Total,fill=Legendary))+geom_boxplot()+theme(axis.text.x = element_text(angle = 90, hjust = 1))+ggtitle("Total power of legendary vs non legendary pokemon by primary type")
 
 #correlation between diffrent stats of pokemon 
 cor.pokemon <- cor(pokemon[,c('HP','Attack','Defense','Speed','Sp..Atk','Sp..Def')])
